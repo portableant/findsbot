@@ -28,5 +28,7 @@ jobs:
         run: Rscript -e 'install.packages("httr", dependencies = TRUE)'
       - name: Install jsonlite package
         run: Rscript -e 'install.packages("jsonlite", dependencies = TRUE)'
+      - name: Install digest package
+        run: Rscript -e 'install.packages("digest", dependencies = TRUE)'
       - name: Create and post tweet
         run: Rscript findsbot-tweet.R
