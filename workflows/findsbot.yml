@@ -1,4 +1,4 @@
-name: vambot
+name: findsbot
 
 on:
   schedule:
