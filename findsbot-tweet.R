@@ -1,3 +1,6 @@
+library(httr)
+library(rtweet)
+library(jsonlite)
 # Create Twitter token
 findsbot_token <- rtweet::create_token(
   app = "findsbot",
