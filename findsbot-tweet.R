@@ -1,6 +1,7 @@
 library(httr)
 library(rtweet)
 library(jsonlite)
+library(digest)
 # Create Twitter token
 findsbot_token <- rtweet::create_token(
   app = "findsbot",
@@ -9,8 +10,9 @@ findsbot_token <- rtweet::create_token(
   access_token =    Sys.getenv("TWITTER_ACCESS_TOKEN"),
   access_secret =   Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
-
-randomFinds <- fromJSON("https://finds.org.uk/database/search/results/q/*:*/sort/random_/show/1/thumbnail/1/format/json")
+hash <- digest(Sys.time(),algo="md5", serialize=TRUE)
+search <- paste0('https://finds.org.uk/database/search/results/q/*:*/sort/random_', hash,'/show/1/thumbnail/1/format/json')
+randomFinds <- fromJSON(search)
 id <- randomFinds$results$id
 url <- paste0('https://finds.org.uk/database/artefacts/record/id/', id)
 period <- randomFinds$results$broadperiod
