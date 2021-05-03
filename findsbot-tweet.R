@@ -23,7 +23,7 @@ county <- randomFinds$results$county
 oldFindID <- randomFinds$results$old_findID
 imagedir <- randomFinds$results$imagedir
 image <- randomFinds$results$filename
-imageUrl <- paste0('https://finds.org.uk/', imagedir, image)
+imageUrl <- paste0('https://finds.org.uk/', imagedir, URLencode(image))
 hashtag <- '#findsorguk #recordYourFinds'
 tweet <- paste(period,objectType,'from',county,oldFindID,url,hashtag, periodHash, sep=' ')
 temp_file <- tempfile()
