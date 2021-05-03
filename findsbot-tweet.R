@@ -16,14 +16,15 @@ randomFinds <- fromJSON(search)
 id <- randomFinds$results$id
 url <- paste0('https://finds.org.uk/database/artefacts/record/id/', id)
 period <- randomFinds$results$broadperiod
+periodHash <- paste0('#',period)
 objectType <- randomFinds$results$objecttype
 county <- randomFinds$results$county
 oldFindID <- randomFinds$results$old_findID
 imagedir <- randomFinds$results$imagedir
 image <- randomFinds$results$filename
 imageUrl <- paste0('https://finds.org.uk/', imagedir, image)
-hashtag <- '#findsorguk #pas'
-tweet <- paste(period,objectType,'from',county,oldFindID,url,hashtag, sep=' ')
+hashtag <- '#findsorguk #recordYourFinds'
+tweet <- paste(period,objectType,'from',county,oldFindID,url,hashtag, periodHash, sep=' ')
 temp_file <- tempfile()
 download.file(imageUrl, temp_file)
 
