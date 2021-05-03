@@ -16,7 +16,7 @@ randomFinds <- fromJSON(search)
 id <- randomFinds$results$id
 url <- paste0('https://finds.org.uk/database/artefacts/record/id/', id)
 period <- randomFinds$results$broadperiod
-periodHash <- paste0('#',period)
+periodHash <- paste0('#',period.gsub(/\s/,''))
 objectType <- randomFinds$results$objecttype
 county <- randomFinds$results$county
 oldFindID <- randomFinds$results$old_findID
