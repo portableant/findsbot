@@ -32,3 +32,5 @@ jobs:
         run: Rscript -e 'install.packages("digest", dependencies = TRUE)'
       - name: Create and post tweet
         run: Rscript findsbot-tweet.R
+      - name: Keepalive Workflow
+        uses: gautamkrishnar/keepalive-workflow@1.0.7
